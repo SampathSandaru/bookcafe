@@ -8,55 +8,10 @@
     
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
-     <link href="../css/home_page.css"  rel="stylesheet" type="text/css">
+     <link href="../css/login_page.css"  rel="stylesheet" type="text/css">
     
     <style>
-        img{
-            width: 100%;
-            
-        }
         
-         
-        .div2{
-            background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url("../img/cXxw3W.jpg");
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            background-attachment: fixed;
-            height:720px;
-        }
-        
-        .table_1{
-            width: 23%;
-            height: 290px;
-            margin-top:240px;
-            margin-left: 560px;
-            position: absolute;
-            background-color: #edf7f3;
-            border-radius: 10px;
-            opacity: 0;
-            animation-name: box_ani;
-            animation-delay: 0.5s;
-            animation-duration: 0.8s;
-            animation-fill-mode: forwards;
-        }
-        
-         
-        @-webkit-keyframes box_ani {
-                from {opacity: 0;} 
-                to {opacity: 1;}
-            }
-        
-        td{
-            border-spacing: 45px;
-            padding: 10px;
-           
-        }
-        
-        .btn{
-            background-color: blueviolet;
-            color: wheat;
-            width: 48%;
-        }
     </style>
     
 </head>

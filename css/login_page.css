@@ -1,0 +1,62 @@
+img{
+            width: 100%;
+            
+        }
+        
+         
+        .div2{
+            background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url("../img/cXxw3W.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            height:720px;
+        }
+        
+        .table_1{
+            width: 23%;
+            height: 290px;
+            margin-top:240px;
+          
+            position: absolute;
+            background-color: #edf7f3;
+            border-radius: 10px;
+            opacity: 0;
+            animation-name: box_ani;
+            animation-delay: 0.6s;
+            animation-duration:1.4s;
+            animation-fill-mode: forwards;
+        }
+        
+         
+        @-webkit-keyframes box_ani {
+                from {margin-left: 400px;opacity: 0;} 
+                to {margin-left: 560px;opacity: 1;}
+            }
+        
+        .navbar{
+             opacity: 0;
+             animation-name: nav;
+            animation-delay: 0.6s;
+            animation-duration:1.4s;
+            animation-fill-mode: forwards;
+        }
+        
+         @-webkit-keyframes nav {
+                from {margin-top: -50px;opacity: 0;} 
+                to {margin-top:0;opacity: 1;}
+            }
+        
+        td{
+            border-spacing: 45px;
+            padding: 10px;
+           
+        }
+        
+        .btn{
+            background-color: blueviolet;
+            color: wheat;
+            width: 48%;
+        }
+.bg{
+   background-color:#5e2396;
+}
