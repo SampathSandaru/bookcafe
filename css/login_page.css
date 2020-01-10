@@ -14,9 +14,9 @@ img{
         
         .table_1{
             width: 23%;
-            height: 290px;
-            margin-top:240px;
-          
+            height: 320px;
+            margin-top:230px;
+           
             position: absolute;
             background-color: #edf7f3;
             border-radius: 10px;
@@ -29,9 +29,31 @@ img{
         
          
         @-webkit-keyframes box_ani {
-                from {margin-left: 400px;opacity: 0;} 
+                from {margin-left: 500px;opacity: 0;} 
                 to {margin-left: 560px;opacity: 1;}
             }
+
+        .table2{
+            width: 37%;
+            height: 350px;
+            margin-top:160px;
+            display: none;
+            position: absolute;
+            background-color: #edf7f3;
+            border-radius: 6px;
+            opacity: 0;
+            animation-name: reg;
+            animation-delay: 0.6s;
+            animation-duration:1.4s;
+            animation-fill-mode: forwards;
+        }
+        
+         
+        @-webkit-keyframes reg {
+                from {margin-left:450px;opacity: 0;} 
+                to {margin-left: 520px;opacity: 1;}
+            }
+ 
         
         .navbar{
              opacity: 0;
@@ -60,3 +82,8 @@ img{
 .bg{
    background-color:#5e2396;
 }
+
+
+
+
+
