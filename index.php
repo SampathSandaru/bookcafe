@@ -1,221 +1,192 @@
+<?php
+    include('page/conn.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <link href="css/home_page.css"  rel="stylesheet" type="text/css">
     
+  <link rel="shortcut icon" type="image/x-icon" href="img/q.png" />
+    
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/navbar.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+      <script>
+        $(document).ready(function(){
+            var cou=4;
+            $("button").click(function(){
+                cou=cou+4;
+                $("#sql").load("page/load.php",{
+                    cou_N:cou
+                });
+            });
+        });
+      </script>
+    
+    <script>
+        function showHint(str) {
+          var xhttp;
+          if (str.length == 0) { 
+            document.getElementById("txtHint").innerHTML = "";
+            document.getElementById("txtHint").style.display="none";
+            return;
+          }else{
+              document.getElementById("txtHint").style.display="block";
+          }
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+          };
+          xhttp.open("GET", "page/gethint_book.php?q="+str, true);
+          xhttp.send();
+            
+        }
+    </script>
+    
     <style>
-        .div1{
-            background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url("img/shutterstock_1068141515.jpg");
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            background-attachment: fixed;
-            height: 720px;
+        body{
+            
+            overflow-x: hidden;
         }
         
-        .div2{
-            background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url("img/cXxw3W.jpg");
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            background-attachment: fixed;
-            height: 400px;
+        .btn{
+            background-color: #0082e6;
+            width: 75%;
+            margin: 0 25px;
+            color: white;
         }
+        
+        .card:hover{
+            transform: scale(1.03);
+            transition: 0.4s;
+            box-shadow:   0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        img{
+                width: 150px;
+                height: 350px;
+        }
+        
+        .search{
+            margin-top: 200px;
+            
+        }
+        #txtHint{
+            background-color: white;
+            position: absolute;
+            z-index: 99;
+            padding: 12px;
+            border-radius: 5px;
+            border-bottom: 1px solid blue;
+            display: none;
+        }
+       
     </style>    
 
 </head>
 <body>
-    <!--nav bar-->
-
-    <nav class="navbar navbar-expand-lg navbar-light bg fixed-top">
-    <a class="navbar-brand" href="#" style="color: aliceblue;">BOOK CAFE</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav ml-auto co">
-      <li class="nav-item active">
-        <a class="nav-link" href="page/login.php" style="color: aliceblue;">Login <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" style="color: aliceblue;">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" style="color: aliceblue;">Pricing</a>
-      </li>
-        </ul>
-     </div>
-    </nav>
-
-
-    <!--end of nav bar-->
-
-    <div class="div1">
+    <!--nav bar-->    
+    <?php
+        include("css/navbar_home.php");
+    ?>
+    <!--/nav bar-->
+    
+    <div class="row">
+        <div class="col-md-3"></div>
         
-    </div>
-
-    <div>
-    A book is a medium for recording information in the form of writing or images, 
-    typically composed of many pages (made of papyrus, parchment, vellum, or paper) 
-    bound together and protected by a cover.[1] The technical term for this physical 
-    arrangement is codex (in the plural, codices). In the history of hand-held physical 
-    supports for extended written compositions or records, the codex replaces its immediate 
-    predecessor, the scroll. A single sheet in a codex is a leaf, and each side of a leaf is a page.
+        <div class="col-md-6">
+           <input type="search" placeholder="Search Book Name or Author Name" onkeyup="showHint(this.value)" class="form-control search" style="width: 85%;display:inline;"><button class="btn" style="width:12%;margin-left:-3px;"><i class="fas fa-search"></i></button>
+            <samp id="txtHint" style="color:black;"> </samp>
+        </div>
+        
+        <div class="col-md-3">
+            
+        </div>
+        
     </div>
     
-    <div class="div2">
-       
-    </div>
+    
+    <div class="row">
+        <div class="col-md-2">
+            
+        </div>
         
+        <div class="col-md-9 carousel">
+            <?php include('page/carousel.php');?>
+        </div>
+        
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+           
+                <div class="row" id="sql">
+    
+                <?php
+                
+                  $sql="SELECT * FROM `book` LIMIT 8";
+                  $reu=mysqli_query($con,$sql);
+                  if($reu){
+
+                      while($recode=mysqli_fetch_assoc($reu)){
+                        $id=$recode['b_id'];
+                        echo "<div class=\"col-lg-3 col-md-6 mb-4\">";
+                        echo "<div class=\"card h-100\">";
+                        echo "<img class=\"card-img-top\"  src={$recode['img_path']}>";
+                        echo "<div class=\"card-body\">";
+                        echo "<h4 class=\"card-title\">";
+                        echo "$recode[b_name]";
+                        echo "</h4>";
+                        echo "<p class=\"card-text\">$recode[year]</p>";
+                        echo "<h5 style=\"color:red;\">Rs. $recode[price].00</h5>";
+                        echo "<p class=\"card-text\">Language - $recode[language]</p>";
+
+                        echo "</div>";
+                            echo "<div class=\"card-footer\">";
+                          echo "<a href=\"page/user_show_book.php?id=$id\" class=\"btn\">Buy Now</a>";
+                             // echo "<small class=\"text-muted\">&#9733; &#9733; &#9733; &#9733; &#9734;</small>";
+                            echo "</div>";
+                          echo "</div>";
+                        echo "</div>";
+                      }
+                  }else{
+                      echo "error";
+                  }
+
+                ?>
+                   
+                    
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <button type="button" class="btn" style="width:100%;color:white;margin:10px;"> show more</button>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
 
      <!-- Footer -->
-<footer class="page-footer font-small unique-color-dark">
-
-  <div style="background-color: #6351ce;">
-    <div class="container">
-
-      <!-- Grid row-->
-      <div class="row py-4 d-flex align-items-center">
-
-        <!-- Grid column -->
-        <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-          <h6 class="mb-0">Get connected with us on social networks!</h6>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-6 col-lg-7 text-center text-md-right">
-
-          <!-- Facebook -->
-          <a class="fb-ic">
-            <i class="fab fa-facebook-f white-text mr-4"> </i>
-          </a>
-          <!-- Twitter -->
-          <a class="tw-ic">
-            <i class="fab fa-twitter white-text mr-4"> </i>
-          </a>
-          <!-- Google +-->
-          <a class="gplus-ic">
-            <i class="fab fa-google-plus-g white-text mr-4"> </i>
-          </a>
-          <!--Linkedin -->
-          <a class="li-ic">
-            <i class="fab fa-linkedin-in white-text mr-4"> </i>
-          </a>
-          <!--Instagram-->
-          <a class="ins-ic">
-            <i class="fab fa-instagram white-text"> </i>
-          </a>
-
-        </div>
-        <!-- Grid column -->
-
-      </div>
-      <!-- Grid row-->
-
-    </div>
-  </div>
-
-  <!-- Footer Links -->
-  <div class="container text-center text-md-left mt-5">
-
-    <!-- Grid row -->
-    <div class="row mt-3">
-
-      <!-- Grid column -->
-      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-
-        <!-- Content -->
-        <h6 class="text-uppercase font-weight-bold">Company name</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.</p>
-
-      </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-        <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Products</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>
-          <a href="#!">MDBootstrap</a>
-        </p>
-        <p>
-          <a href="#!">MDWordPress</a>
-        </p>
-        <p>
-          <a href="#!">BrandFlow</a>
-        </p>
-        <p>
-          <a href="#!">Bootstrap Angular</a>
-        </p>
-
-      </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
-        <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Useful links</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>
-          <a href="#!">Your Account</a>
-        </p>
-        <p>
-          <a href="#!">Become an Affiliate</a>
-        </p>
-        <p>
-          <a href="#!">Shipping Rates</a>
-        </p>
-        <p>
-          <a href="#!">Help</a>
-        </p>
-
-      </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-
-        <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Contact</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>
-          <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-        <p>
-          <i class="fas fa-envelope mr-3"></i> info@example.com</p>
-        <p>
-          <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-        <p>
-          <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
-
-      </div>
-      <!-- Grid column -->
-
-    </div>
-    <!-- Grid row -->
-
-  </div>
-  <!-- Footer Links -->
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
-  </div>
-  <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
+    <?php
+        include('page/footer.html');
+    ?>
     
 </body>
 </html>

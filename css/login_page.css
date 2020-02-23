@@ -1,22 +1,16 @@
-img{
-            width: 100%;
-            
-        }
-        
-         
-        .div2{
-            background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url("../img/cXxw3W.jpg");
+ 
+        body{
+             background-attachment: fixed;
+            background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url("../img/bg1.jpg");
             background-repeat: no-repeat;
             background-size: 100% 100%;
-            background-attachment: fixed;
-            height:720px;
+            height: 100vh;
         }
         
         .table_1{
-            width: 23%;
+            width: 50%;
             height: 320px;
-            margin-top:230px;
-           
+            margin-top:180px;
             position: absolute;
             background-color: #edf7f3;
             border-radius: 10px;
@@ -34,9 +28,9 @@ img{
             }
 
         .table2{
-            width: 37%;
+            width: 55%;
             height: 350px;
-            margin-top:160px;
+            margin-top:130px;
             display: none;
             position: absolute;
             background-color: #edf7f3;
@@ -75,14 +69,14 @@ img{
         }
         
         .btn{
-            background-color: blueviolet;
+            background-color: #0082e6;
             color: wheat;
             width: 48%;
         }
-.bg{
-   background-color:#5e2396;
-}
 
+.btn:hover{
+    transition: 0.7s;
+}
 
 
 
