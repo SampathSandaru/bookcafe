@@ -8,19 +8,27 @@
         
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         
-        <!--  dropdown search    -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
-        
         <script>
-            $(document).ready(function () {
-                $('select').selectize({
-                    sortField: 'text'
-                });
-            });
-        </script>
-        <!-- -->
+        function showHint(str) {
+          var xhttp;
+          if (str.length == 0) { 
+            document.getElementById("txtHint").innerHTML = "";
+            document.getElementById("txtHint").style.display="none";
+            return;
+          }else{
+              document.getElementById("txtHint").style.display="block";
+          }
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+          };
+          xhttp.open("GET", "admin_gethint_book.php?q="+str, true);
+          xhttp.send();
+            
+        }
+    </script>
         
         <style>
             .head{
@@ -58,6 +66,16 @@
             input[type:search]:focus{
                 width: 100%;
             }
+            
+            #txtHint{
+            background-color: white;
+            position: absolute;
+            z-index: 99;
+            padding: 12px;
+            border-radius: 5px;
+            border-bottom: 1px solid blue;
+            display: none;
+        }
         </style>
     </head>
     <body>
@@ -65,34 +83,24 @@
         <br>
         <div class="container">
             <div class="row">
-            <div class="col-md-12">
-                <div class="head">
-                    Book
-<!--
-                    <form method="post">
+                <div class="col-md-12">
+                    <div class="head">
+                        Book
 
-                        <select class="form-control" name="book_name" style="width:50%;margin-left:-15px;">
-                            <?php
-                                 $sql="SELECT * FROM `book`";
-                                  $reu=mysqli_query($con,$sql);
-                                    if($reu){
-                                        echo "<option value=\"\">Book Name</option>";
-                                        while($recode=mysqli_fetch_assoc($reu)){
-                                            echo "<option value=\"$recode[b_name]\">$recode[b_name]</option>";
-                                        }
-                                    }
-                            ?>
-                        </select>
-
-                        <input type="submit" name="submit" class="btn" value="search">
-                    </form>
--->
-<!--                    <input type="search" class="form-control" style="float:right;" placeholder="Search">-->
-                </div>
-             </div>
-                
+                    </div>
+                </div> 
             </div>
-            
+            <div class="row">
+                <div class="col-md-12">
+                    <div>
+                        <input type="text" class="form-control" placeholder="Search Book Name , Author Name or Book ID" onkeyup="showHint(this.value)">
+                        
+                          <samp id="txtHint" style="color:black;"> </samp>
+                    </div>
+                </div> 
+            </div>
+            <br>
+            <br>
         <div class="row">
            
                 <div class="row" id="sql">

@@ -191,7 +191,7 @@
                 <div class="col-md-7">
                     <div class="">
                         <table class="tab">
-<!--                            <form method="post">-->
+                            <form method="post" action="buy.php?id=<?php echo $b_id;?>">
                         <?php
                             $tb="<tr><th>$b_name</th></tr>";
                             $tb.="<tr><td>Language - $lng</td></tr>";
@@ -201,13 +201,10 @@
                             $tb.="<tr><td style=\"color:red;\">Rs.$price</td></tr>";
                             $tb.="<tr><td>Quantity  <input type=\"number\" id=\"quantity\" name=\"number_cart\" style=\"width:18%;margin-top:5px;border-radius:8px;text-align:center;borde:none;\" value=\"1\" min=\"1\" max=\"$q\"> <samp style=\"font-size:15px;\">$q available</samp></td></tr>";
                             $tb.="<tr><td>
-                            <input type=\"submit\" class=\"btn sub_btn\" value=\"Buy Now\" style=\"width:40%;margin:3px;\" ><button type=\"nutton\" value=\"$b_id\" onclick='showSizeDetails(this.value)' class=\"btn\" style=\"width:45%;background-color:orange;height:36px;\" data-toggle=\"modal\" data-target=\"#exampleModal\">Add to Cart</button></td></tr>";
-                                
-//                            <button type=\"submit\" name=\"cart\" class=\"btn\" style=\"width:45%;background-color:orange;height:36px;\">Add to Cart</button></td></tr>";
-                                
+                            <input type=\"submit\" class=\"btn sub_btn\" value=\"Buy Now\" style=\"width:40%;margin:3px;\" ><button value=\"$b_id\" onclick='showSizeDetails(this.value)' class=\"btn\" style=\"width:45%;background-color:orange;height:36px;\" data-toggle=\"modal\" data-target=\"#exampleModal\">Add to Cart</button></td></tr>";
                             echo $tb;
                         ?>
-<!--                                </form>-->
+                                </form>
                         </table>
                     </div>
                 </div>

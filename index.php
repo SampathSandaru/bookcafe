@@ -146,6 +146,7 @@
 
                       while($recode=mysqli_fetch_assoc($reu)){
                         $id=$recode['b_id'];
+                        echo "<a href=\"page/user_show_book.php?id=$id\">";
                         echo "<div class=\"col-lg-3 col-md-6 mb-4\">";
                         echo "<div class=\"card h-100\">";
                         echo "<img class=\"card-img-top\"  src={$recode['img_path']}>";
@@ -163,7 +164,7 @@
                              // echo "<small class=\"text-muted\">&#9733; &#9733; &#9733; &#9733; &#9734;</small>";
                             echo "</div>";
                           echo "</div>";
-                        echo "</div>";
+                        echo "</div></a>";
                       }
                   }else{
                       echo "error";

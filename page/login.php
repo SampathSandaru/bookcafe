@@ -29,6 +29,42 @@
             echo "query error";
         }
     }
+
+$error="";
+    if(isset($_POST['submit_r'])){
+        $email=mysqli_real_escape_string($con,$_POST['email']);
+        $fname=mysqli_real_escape_string($con,$_POST['fname']);
+        $lname=mysqli_real_escape_string($con,$_POST['lname']);
+        $num=mysqli_real_escape_string($con,$_POST['num']);
+        $pwd1=mysqli_real_escape_string($con,$_POST['pwd1']);
+        $pwd2=mysqli_real_escape_string($con,$_POST['pwd2']);
+        
+        $email_query="SELECT * FROM `user` WHERE email='$email'";
+        $email_result=mysqli_query($con,$email_query);
+        if($email_result){
+            if(mysqli_num_rows($email_result)==1){
+                echo "<script>alert('email already registered')</script>";
+            }else{
+                $error="";
+                
+                if($pwd1!=$pwd2){
+                    echo "<script>alert('Password Not Match')</script>";
+                }else{
+                    $insert_query="INSERT INTO `user` (fname,lname,email,number,password) VALUE('{$fname}','{$lname}','{$email}','{$num}','{$pwd1}')";
+                    $insert_result=mysqli_query($con,$insert_query);
+                    
+                    if($insert_result){
+                        
+                    }
+                    
+                }
+            }
+            
+        }
+        
+        
+        
+    }
 ?>
 
 <!DOCTYPE html>
@@ -108,29 +144,33 @@
         <form method="post">
             <table class="table2" id="rge_tb">
                 <tr>
+                   <td></td>
+                   <td><?php echo "$error";?></td>
+                </tr>
+                <tr>
                    <td>First Name</td>
-                   <td><input type="text" name="fname"  class="form-control" placeholder="First Name"></td>
+                   <td><input type="text" name="fname"  class="form-control" placeholder="First Name" required></td>
                 </tr>
                  <tr>
                    <td>Last Name</td>
-                   <td><input type="text" name="lname"  class="form-control" placeholder="Last Name"></td>
+                   <td><input type="text" name="lname"  class="form-control" placeholder="Last Name" required></td>
                 </tr>
                   <tr>
                    <td>Contact Number</td>
-                   <td><input type="text" name="lname"  class="form-control" placeholder="0711234567"></td>
+                   <td><input type="text" name="num"  class="form-control" placeholder="0711234567" required></td>
                 </tr>
                 <tr>
                    <td>Email Address</td>
-                   <td><input type="email" name="email"  class="form-control" placeholder="email Address"></td>
+                   <td><input type="email" name="email"  class="form-control" placeholder="email Address" required></td>
                 </tr>
                 <tr>
                     <td>Password</td>
-                    <td><input type="password" name="pwd1"  class="form-control" placeholder="password"> </td>
+                    <td><input type="password" name="pwd1"  class="form-control" placeholder="password" required> </td>
                 </tr>
                 <tr><td id="text">Caps lock is ON.</td></tr>
                  <tr>
                     <td>Confirm Password</td>
-                    <td><input type="password" name="pwd2"  class="form-control" placeholder="Confirm password"> </td>
+                    <td><input type="password" name="pwd2"  class="form-control" placeholder="Confirm password" required> </td>
                 </tr>
                 
                  <tr>

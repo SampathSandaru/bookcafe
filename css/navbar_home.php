@@ -50,6 +50,7 @@
         <li><a href="#" style="text-decoration: none;">About</a></li>
         <li><a href="#" style="text-decoration: none;">Services</a></li>
         <li><a href="#" style="text-decoration: none;">Contact</a></li>
+        <li><a href="page/profile.php" style="text-decoration: none;">Profile</a></li>
         <li><?php echo $val;?></li>  
       </ul>
     </nav>
