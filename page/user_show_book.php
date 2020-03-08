@@ -54,7 +54,7 @@
     cou($user_id,$con);
 
     if(isset($_POST['cart'])){
-        $num=$_POST['number_cart'];
+        $num=$_POST['quantity'];
         
         $cart_query="INSERT INTO `cart` (b_id,c_quantity,user_id) VALUE('{$b_id}','{$num}','{$user_id}')";
         $cart_result=mysqli_query($con,$cart_query);
@@ -79,6 +79,11 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!--poup box link-->
        
+        <!-- for header-->
+        <link rel="stylesheet" href="../Navbar/style.css">
+<!--    <script src="https://kit.fontawesome.com/a076d05399.js"></script>-->
+<!--        -->
+        
         <script>
             function showSizeDetails(id){
                 var xhttp;
@@ -124,7 +129,6 @@
             .tab{
                 margin-top: 16px;
                 font-size: 19px;
-/*                font-style: italic;*/
             }
             .tab th{
                 padding:15px 0;
@@ -132,25 +136,6 @@
             
             .tab td{
                 padding:8px 0;
-            }
-            
-            ul li{
-                float: right;
-                display: inline-block;
-                color: white;
-                line-height:30px; 
-               
-            }
-            ul li a{
-                padding: 14px 16px;
-                text-align: center;
-            }
-            ul{
-                text-align: center;
-            }
-            
-            ul li a:hover{
-                transform: scale(1.02);
             }
             .sub_btn{
                 background-color: red;
@@ -164,20 +149,9 @@
         </style>
     </head>
     <body>
-        <div class="head">
-            <div class="row"> 
-                   <div class="col-md-4"> 
-                        BOOK CAFE
-                    </div>   
-                <div class="col-md-4"> </div>
-                <div class="col-md-4"> 
-                    <ul style="float:right;">
-                        <li><a href="cart.php" style="color:white;text-decoration:none;"><sup><?php echo cou($user_id,$con);?></sup> <i class="fa fa-shopping-cart" style="color:white;"></i></a>
-                        <li><a href="../index.php" style="color:white;text-decoration:none;">Home</a></li>
-                    </ul>
-                </div>
-            </div>
-         </div> 
+         <?php
+            include('../Navbar/header.html');
+        ?>
         
         <div class="container">
             
@@ -191,7 +165,7 @@
                 <div class="col-md-7">
                     <div class="">
                         <table class="tab">
-                            <form method="post" action="buy.php?id=<?php echo $b_id;?>">
+                            <form method="post" action="buy.php?id=<?php echo $b_id;?>&price=<?php echo $price;?>">
                         <?php
                             $tb="<tr><th>$b_name</th></tr>";
                             $tb.="<tr><td>Language - $lng</td></tr>";
@@ -199,9 +173,9 @@
                             $tb.="<tr><td>Year - $year</td></tr>";
                             $tb.="<tr><td>Type - $category</td></tr>";
                             $tb.="<tr><td style=\"color:red;\">Rs.$price</td></tr>";
-                            $tb.="<tr><td>Quantity  <input type=\"number\" id=\"quantity\" name=\"number_cart\" style=\"width:18%;margin-top:5px;border-radius:8px;text-align:center;borde:none;\" value=\"1\" min=\"1\" max=\"$q\"> <samp style=\"font-size:15px;\">$q available</samp></td></tr>";
+                            $tb.="<tr><td>Quantity  <input type=\"number\" id=\"quantity\" name=\"quantity\" style=\"width:18%;margin-top:5px;border-radius:8px;text-align:center;borde:none;\" value=\"1\" min=\"1\" max=\"$q\"> <samp style=\"font-size:15px;\">$q available</samp></td></tr>";
                             $tb.="<tr><td>
-                            <input type=\"submit\" class=\"btn sub_btn\" value=\"Buy Now\" style=\"width:40%;margin:3px;\" ><button value=\"$b_id\" onclick='showSizeDetails(this.value)' class=\"btn\" style=\"width:45%;background-color:orange;height:36px;\" data-toggle=\"modal\" data-target=\"#exampleModal\">Add to Cart</button></td></tr>";
+                            <input type=\"submit\" class=\"btn sub_btn\" value=\"Buy Now\" style=\"width:40%;margin:3px;\" ><button type=\"button\" value=\"$b_id\" onclick='showSizeDetails(this.value)' class=\"btn\" style=\"width:45%;background-color:orange;height:36px;\" data-toggle=\"modal\" data-target=\"#exampleModal\">Add to Cart</button></td></tr>";
                             echo $tb;
                         ?>
                                 </form>

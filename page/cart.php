@@ -34,6 +34,12 @@
 <!--        fontawosome-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         
+        
+        <!-- for header-->
+        <link rel="stylesheet" href="../Navbar/style.css">
+<!--    <script src="https://kit.fontawesome.com/a076d05399.js"></script>-->
+<!--        -->
+        
 <!--
       <script>
             function showSizeDetails(id){
@@ -58,21 +64,6 @@
         </script>
 -->
         <style>
-            body{
-/*                overflow-x: hidden;*/
-            }
-            .head{
-                background-color:#0082e6;
-                width 100%;
-                color: white;
-                padding:12px;
-                font-size: 25px;
-                margin:0 0 20px 0;
-                margin-top:-50px;
-                box-shadow:   0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-                user-select: none;
-            }
-            
             
             img{
                 width: 100px;
@@ -131,23 +122,9 @@
         </style>
     </head>
     <body>
-        <br>
-        <br>
-        
-        <div class="head">
-            <div class="row"> 
-                   <div class="col-md-4"> 
-                        BOOK CAFE
-                    </div>   
-                <div class="col-md-4"> </div>
-                <div class="col-md-4"> 
-                    <ul style="float:right;">
-                        
-                        <li><a href="../index.php" style="color:white;text-decoration:none;">Home</a></li>
-                    </ul>
-                </div>
-            </div>
-         </div> 
+          <?php
+            include('../Navbar/header.html');
+        ?>
             
         <div class="row">
                 <div class="col-md-2"></div>
