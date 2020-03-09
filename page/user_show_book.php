@@ -97,28 +97,22 @@
                 xhttp.onreadystatechange = function() {
                     
                    if(this.readyState == 4 && this.status == 200) {
-                        var input = document.getElementById("quantity").value;                   
+                        var input = document.getElementById("quantity").value;
+                      // var rs = JSON.parse(this.responseText);
+                      //document.getElementById("price").innerHTML = this.responseText;
                     }
                 };
                 
                 xhttp.open("GET","cart_ajex.php?qua=" + input, true);
                 xhttp.send();   
-            } 
+            }
+            
+         /*********************************************************************/   
         </script>
         
         
         <style>
-             .head{
-                background-color:#0082e6;
-                width 100%;
-                color: white;
-                padding:15px;
-                font-size: 25px;
-                margin:0 0 20px 0;
-                margin-top:0px;
-                box-shadow:   0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-                user-select: none;
-            }
+            
             
             img{
                 width:300px;
@@ -146,23 +140,44 @@
                 transition: 0.4s;
             }
             
+            .card{
+                width: 90%;
+                height: 300px;
+                margin-top: 20px;
+                position: relative;
+                box-shadow:   8px 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+                padding: 10px;
+            }
+            
+            .tb_card{
+                width: 100%;     
+            }
+            
+            .tb_card th{
+                padding: 8px;
+            }
+            
+            .tb_card td{
+                padding: 12px;
+            }
+            
         </style>
     </head>
     <body>
-         <?php
-            include('../Navbar/header.html');
+        <?php
+            include('../Navbar/header.php');
         ?>
-        
+        <br>
         <div class="container">
             
             <div class="row">
 <!--                <div class="col-md-1"></div>-->
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <?php
                         echo "<img src=\"../$img\" class=\"img-fluid\">";
                     ?>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <div class="">
                         <table class="tab">
                             <form method="post" action="buy.php?id=<?php echo $b_id;?>&price=<?php echo $price;?>">
@@ -173,7 +188,7 @@
                             $tb.="<tr><td>Year - $year</td></tr>";
                             $tb.="<tr><td>Type - $category</td></tr>";
                             $tb.="<tr><td style=\"color:red;\">Rs.$price</td></tr>";
-                            $tb.="<tr><td>Quantity  <input type=\"number\" id=\"quantity\" name=\"quantity\" style=\"width:18%;margin-top:5px;border-radius:8px;text-align:center;borde:none;\" value=\"1\" min=\"1\" max=\"$q\"> <samp style=\"font-size:15px;\">$q available</samp></td></tr>";
+                            $tb.="<tr><td>Quantity  <input type=\"number\" id=\"quantity\" name=\"quantity\" style=\"width:18%;margin-top:5px;border-radius:8px;text-align:center;borde:none;\" value=\"1\" min=\"1\" max=\"$q\" > <samp style=\"font-size:15px;\">$q available</samp></td></tr>";
                             $tb.="<tr><td>
                             <input type=\"submit\" class=\"btn sub_btn\" value=\"Buy Now\" style=\"width:40%;margin:3px;\" ><button type=\"button\" value=\"$b_id\" onclick='showSizeDetails(this.value)' class=\"btn\" style=\"width:45%;background-color:orange;height:36px;\" data-toggle=\"modal\" data-target=\"#exampleModal\">Add to Cart</button></td></tr>";
                             echo $tb;
@@ -181,6 +196,32 @@
                                 </form>
                         </table>
                     </div>
+                </div>
+                <div class="col-md-3">
+<!--
+                    <div class="card">
+                    <form method="post" action="buy.php">
+                    <table class="tb_card">
+                        <tr>
+                            <th>Your Order</th>
+                        </tr>
+                        <tr>
+                            <td>SubTotal</td>
+                            <td>Rs :<label id="price"></label></td>
+                        </tr>
+                        <tr>
+                            <td>Discount 5%</td>
+                            <td>-Rs :</td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td>Rs :</td>
+                        </tr>
+                       
+                    </table>
+                    </form>
+                </div>
+-->
                 </div>
             </div>
             <div class="tab">

@@ -2,19 +2,6 @@
     include('conn.php');
     session_start();
 
-    if(isset($_GET['b_id'])){
-        $book_id=$_GET['b_id'];
-        $u_id=$_GET['user_id'];
-        $cart_id=$_GET['cart_id'];
-        $remove_query="UPDATE `cart` SET quantity=quantity-1 WHERE b_id='$book_id' AND user_id='$u_id' AND cart_id='$cart_id'";
-        $remove_result=mysqli_query($con,$remove_query);
-        if($remove_result){
-            //echo "ok";
-        }else{
-            echo "error";
-        }
-    }
-
     if(isset($_GET['cart_id'])){
         $cart_id=$_GET['cart_id'];
         $delet_q="DELETE FROM `cart` WHERE cart_id='$cart_id'"; 
@@ -123,7 +110,7 @@
     </head>
     <body>
           <?php
-            include('../Navbar/header.html');
+            include('../Navbar/header.php');
         ?>
             
         <div class="row">
@@ -142,6 +129,7 @@
                         <?php
                             $user_id=$_SESSION['id'];
                             $tot=0;
+                            $count=0;
                             $tot_p=0;
                             $q="SELECT * FROM `cart` c,`book` b WHERE user_id='$user_id' AND b.b_id=c.b_id";
                             $q_result=mysqli_query($con,$q);
@@ -162,9 +150,10 @@
                                      $tb1.="<td>$b_id_recode[price]</td>";
                                      $tb1.="<td>$tot</td>";
 //                                     $tb1.="<td><button value=\"$b_id_recode[cart_id]\" onclick='showSizeDetails(this.value)'><i class=\"fa fa-trash\"></i></button></td>";
-                                     $tb1.="<td><a href=\"cart.php?cart_id=$b_id_recode[cart_id]\"<i class=\"fa fa-trash\"></i></a></td>";
+                                     $tb1.="<td><a href=\"cart.php?cart_id=$b_id_recode[cart_id]\"><i class=\"fa fa-trash\"></i></a></td>";
                                      $tb1.="</tr>";
-
+                                    $count=$count+$b_id_recode['c_quantity'];
+                                     
                                      echo $tb1;
                                  }
                                 }
@@ -175,6 +164,7 @@
           </div>
             <div class="col-md-3">
                 <div class="card">
+                    <form method="post" action="buy.php">
                     <table class="tb_card">
                         <tr>
                             <th>Your Order</th>
@@ -188,6 +178,10 @@
                             <td>-Rs :<?php if($tot_p>10000){ $di_tot=($tot_p*5)/100;}else{ $di_tot=0;} echo $di_tot;?></td>
                         </tr>
                         <tr>
+                            <td>Item Quantity</td>
+                            <td>Rs :<?php echo $count;?></td>
+                        </tr>
+                        <tr>
                             <td>Total</td>
                             <td>Rs :<?php echo $tot_p-$di_tot;?></td>
                         </tr>
@@ -196,6 +190,7 @@
                             <td><input type="submit" name="pay" value="Place Order" class="btn"></td>
                         </tr>
                     </table>
+                    </form>
                 </div>
             </div>
         </div>

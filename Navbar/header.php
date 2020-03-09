@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+<?php
+    include('../page/conn.php');
+    //session_start();
+    $user_id=$_SESSION['id'];
+    $count_query="SELECT sum(c_quantity) as num from `cart` WHERE user_id='$user_id' GROUP by (user_id)";
+    $count_result=mysqli_query($con,$count_query);
+
+    if($count_result){
+        $rec=mysqli_fetch_assoc($count_result);
+        $cart_num=$rec['num'];
+    }
+    
+?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -22,10 +34,10 @@
             <div class="col-md-2"></div>
             <div class="col-md-7">
                 <ul>
-                    <li><a class="active" href="../index.php">Home</a></li>
+                    <li><a href="../index.php">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Services</a></li>
-                    <li><a href="../page/cart.php">Card</a></li>
+                    <li><a href="../page/cart.php"><sup><?php echo $cart_num;?></sup>Card</a></li>
                     <li><a href="../page/My_Order.php">My Order</a></li>
                     <li><a href="../page/profile.php">Profile</a></li>
                     <li><a href="../page/logout.php">Logout</a></li>

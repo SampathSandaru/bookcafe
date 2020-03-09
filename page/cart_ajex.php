@@ -9,10 +9,13 @@
     $qua=$_GET['qua']; 
     
     $sql="INSERT INTO `cart` (b_id,c_quantity,user_id) VALUE('{$b_id}','{$qua}','{$user_id}')";
-    //$sql="DELETE FROM `cart` WHERE cart_id='$c_id'";
-    //$sql = "SELECT * FROM `stock` WHERE `size` = {$_GET['size']}";
 
     $result = mysqli_query($con, $sql);
 
     $user_id=$_SESSION['id'];
+    $price =$_SESSION['book_price'];
+    echo $qua;
+
+    
+    echo json_encode($rs);
 ?>

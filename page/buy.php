@@ -1,5 +1,5 @@
 <?php
-$strhtml = '<!doctype html>';
+
     include('conn.php');
     session_start();
     
@@ -7,7 +7,7 @@ $strhtml = '<!doctype html>';
     $price=$_GET['price'];
     $item_id=$_GET['id'];
     $user_id=$_SESSION['id'];
-
+    $tot=$price*$item_qnt;
      $query="SELECT * FROM `user` u, `address` a WHERE id='$_SESSION[id]' AND a.user_id=u.id";
     $result=mysqli_query($con,$query);
 
@@ -15,17 +15,8 @@ $strhtml = '<!doctype html>';
        $recode=mysqli_fetch_assoc($result);
         
     }
-// create the DOMDocument object, and load HTML from a string
 
-$dochtml = new DOMDocument();
-$dochtml->loadHTML($strhtml);
     if(isset($_POST['submit1'])){
-        
-        //$elm = $dochtml->getElementById('txtHint')->textContent;
-        //$tag = $elm->tagName;
-        //$cnt = $elm->nodeValue;
-        //echo $add;
-        //echo "<script>alert($elm)</script>";
         $add_name=$_POST['add_name'];
         $address_query="SELECT * FROM `address` WHERE name='$add_name'";
         $address_result=mysqli_query($con,$address_query);
@@ -135,12 +126,13 @@ $dochtml->loadHTML($strhtml);
             }
             
             
+            
         </style>
     </head>
     <body>
         
         <?php
-            include('../Navbar/header.html');
+            include('../Navbar/header.php');
         ?>
         
 <!--  defalit address -->
@@ -206,6 +198,12 @@ $dochtml->loadHTML($strhtml);
                     <div class="form-row">
                         <div class="form-group col-md-5">
                             <input type="submit" value="Confirm" name="submit1" class="btn" style="background-color:red;color:white;">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Rs :<?php echo $tot;?>.00</label>
                         </div>
                     </div>
                 </form>    
@@ -296,6 +294,11 @@ $dochtml->loadHTML($strhtml);
                     <div class="form-row">
                         <div class="form-group col-md-5">
                             <input type="submit" value="Confirm" name="submit2" class="btn" style="background-color:red;color:white;">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label>Rs :<?php echo $tot;?>.00</label>
                         </div>
                     </div>
                     
