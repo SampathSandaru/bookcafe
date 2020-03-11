@@ -131,6 +131,7 @@
                             $tot=0;
                             $count=0;
                             $tot_p=0;
+                            $sub_tot=0;
                             $q="SELECT * FROM `cart` c,`book` b WHERE user_id='$user_id' AND b.b_id=c.b_id";
                             $q_result=mysqli_query($con,$q);
 
@@ -139,7 +140,8 @@
                                      $bo_id=$b_id_recode['b_id'];
                                      $cart_id=$b_id_recode['cart_id'];
                                      $quantity=$b_id_recode['quantity'];
-                                     $tot_p=$tot_p+$tot;
+                                     $tot_p=$b_id_recode['c_quantity']*$b_id_recode['price'];
+                                     $sub_tot=$sub_tot+$tot_p;
                                      $tot=$b_id_recode['c_quantity']*$b_id_recode['price'];
                                      $id=$b_id_recode['b_id'];
                                      $im=$b_id_recode['img_path'];
@@ -149,7 +151,6 @@
                                      $tb1.="<td>$b_id_recode[c_quantity]</td>";
                                      $tb1.="<td>$b_id_recode[price]</td>";
                                      $tb1.="<td>$tot</td>";
-//                                     $tb1.="<td><button value=\"$b_id_recode[cart_id]\" onclick='showSizeDetails(this.value)'><i class=\"fa fa-trash\"></i></button></td>";
                                      $tb1.="<td><a href=\"cart.php?cart_id=$b_id_recode[cart_id]\"><i class=\"fa fa-trash\"></i></a></td>";
                                      $tb1.="</tr>";
                                     $count=$count+$b_id_recode['c_quantity'];
@@ -171,11 +172,11 @@
                         </tr>
                         <tr>
                             <td>SubTotal</td>
-                            <td>Rs :<?php echo $tot_p;?></td>
+                            <td>Rs :<?php echo $sub_tot;?></td>
                         </tr>
                         <tr>
                             <td>Discount 5%</td>
-                            <td>-Rs :<?php if($tot_p>10000){ $di_tot=($tot_p*5)/100;}else{ $di_tot=0;} echo $di_tot;?></td>
+                            <td>-Rs :<?php if($sub_tot>10000){ $di_tot=($sub_tot*5)/100;}else{ $di_tot=0;} echo $di_tot;?></td>
                         </tr>
                         <tr>
                             <td>Item Quantity</td>
@@ -183,7 +184,7 @@
                         </tr>
                         <tr>
                             <td>Total</td>
-                            <td>Rs :<?php echo $tot_p-$di_tot;?></td>
+                            <td>Rs :<?php echo $sub_tot-$di_tot;?></td>
                         </tr>
                         <tr>
                             <td></td>

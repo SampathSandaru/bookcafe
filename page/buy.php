@@ -8,7 +8,7 @@
     $item_id=$_GET['id'];
     $user_id=$_SESSION['id'];
     $tot=$price*$item_qnt;
-     $query="SELECT * FROM `user` u, `address` a WHERE id='$_SESSION[id]' AND a.user_id=u.id";
+    $query="SELECT * FROM `user` u, `address` a WHERE id='$_SESSION[id]' AND a.user_id=u.id";
     $result=mysqli_query($con,$query);
 
     if($result){
