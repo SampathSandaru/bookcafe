@@ -54,7 +54,9 @@ $error="";
                     $insert_result=mysqli_query($con,$insert_query);
                     
                     if($insert_result){
-                        
+                        // register seccess
+                    }else{
+                        // register fail 
                     }
                     
                 }

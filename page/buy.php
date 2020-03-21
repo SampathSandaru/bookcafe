@@ -33,6 +33,11 @@
             
             $order_query="INSERT INTO `order` (book_id,user_id,order_address,order_quantity,order_price) VALUE('{$item_id}','{$user_id}','{$order_address}','{$item_qnt}','{$tot}')";
             $order_result=mysqli_query($con,$order_query);
+            
+            //auantity (-)
+            $qua_que="UPDATE `book` SET quantity=quantity-$item_qnt WHERE b_id='$item_id'";
+            $qua_res=mysqli_query($con,$qua_que);
+            //
         }
         
         
@@ -58,6 +63,11 @@
         
         $order_query="INSERT INTO `order` (book_id,user_id,order_address,order_quantity,order_price) VALUE('{$item_id}','{$user_id}','{$address}','{$item_qnt}','{$tot}')";
             $order_result=mysqli_query($con,$order_query);
+        
+        //auantity (-)
+        $qua_que="UPDATE `book` SET quantity=quantity-$item_qnt WHERE b_id='$item_id'";
+        $qua_res=mysqli_query($con,$qua_que);
+        //
     }
 
 ?>

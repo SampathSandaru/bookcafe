@@ -23,6 +23,8 @@
               height: 100vh;
           }
       </style>
+      
+     
   </head>
   <body>
 <div class="row"> 
@@ -42,9 +44,9 @@
             <li><a href="add_book.php" target="p" style="text-decoration:none;"><i class="fas fa-book-medical"></i>Add Book</a></li>
             <li><a href="add_author.php" target="p" style="text-decoration:none;"><i class="fas fa-user-tie"></i>Add New Author</a></li>
             <li><a href="add_category.php" target="p" style="text-decoration:none;"><i class="fas fa-stream"></i>Add Category</a></li>
-            <li><a href="#" style="text-decoration:none;"><i class="far fa-question-circle"></i>About</a></li>
-            <li><a href="#" style="text-decoration:none;"><i class="fas fa-sliders-h"></i>Services</a></li>
-            <li><a href="#" style="text-decoration:none;"><i class="far fa-envelope"></i>Contact</a></li>
+            <li><a href="new_order.php" target="p" style="text-decoration:none;"><i class="far fa-question-circle"></i>New Order</a></li>
+            <li><a href="order_history.php" target="p" style="text-decoration:none;"><i class="fas fa-sliders-h"></i>Order History</a></li>
+            <li><a href="users.php" target="p" style="text-decoration:none;"><i class="far fa-envelope"></i>User</a></li>
             <li><a href="logout.php" style="text-decoration:none;"><i class="fas fa-sign-out-alt"></i>Log out</a></li>
           </ul>
         </div>
@@ -55,6 +57,12 @@
     </div>
 </div>
 <!-- <section></section>-->
-
+ <script type="text/javascript">
+          function preventBack(){
+              window.history.forward();
+          }
+          setTimeout("preventBack()",0);
+          window.onunload=function () {null};
+      </script>
   </body>
 </html>

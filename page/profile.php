@@ -83,13 +83,13 @@
         <div class="row">
            
                <div class="col-sm-3 navigation2" style="margin-top: 150px;">
-                    <div class="row"><a href="change_pwd.php" target="page">Edit Profile</a></div>
+                    <div class="row"><a href="change_profile.php" target="page">Edit Profile</a></div>
                     <div class="row"><a href="change_pwd.php" target="page">Change Password</a></div>
                     <div class="row"><a href="address.php" target="page">Address</a></div>
                 </div>
         
             <div class="col-md-9">
-                <iframe class="ifrm" name="page"></iframe>
+                <iframe class="ifrm" name="page" src="change_profile.php"></iframe>
             </div>
         </div>
         

@@ -48,7 +48,7 @@
       <ul id="li">
         <li style="color: white;font-size: 25px;"><?php echo $name;?></li>
         <li><a href="#" style="text-decoration: none;">About</a></li>
-        <li><a href="#" style="text-decoration: none;">Services</a></li>
+        <li><a href="page/My_Order.php" style="text-decoration: none;">My order</a></li>
         <li><a href="#" style="text-decoration: none;">Contact</a></li>
         <li><a href="page/profile.php" style="text-decoration: none;">Profile</a></li>
         <li><?php echo $val;?></li>  

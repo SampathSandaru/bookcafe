@@ -110,7 +110,7 @@
         <div class="col-md-3"></div>
         
         <div class="col-md-6">
-           <input type="search" placeholder="Search Book Name or Author Name" onkeyup="showHint(this.value)" class="form-control search" style="width: 85%;display:inline;"><button class="btn" style="width:12%;margin-left:-3px;"><i class="fas fa-search"></i></button>
+           <input type="search" placeholder="Search Book Name or Author Name" onkeyup="showHint(this.value)" class="form-control search" style="width: 100%;">
             <samp id="txtHint" style="color:black;"> </samp>
         </div>
         

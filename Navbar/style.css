@@ -1,13 +1,3 @@
-/*
-*{
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  list-style: none;
-  box-sizing: border-box;
-}
-*/
-
 body{
   font-family: montserrat;
 }
@@ -44,6 +34,7 @@ nav ul li a{
 a.active,a:hover{
 /*  background: #1b9bff;*/
   transition: .5s;
+    text-decoration: none;
 }
 .checkbtn{
   font-size: 30px;
