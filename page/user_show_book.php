@@ -197,32 +197,6 @@
                         </table>
                     </div>
                 </div>
-                <div class="col-md-3">
-<!--
-                    <div class="card">
-                    <form method="post" action="buy.php">
-                    <table class="tb_card">
-                        <tr>
-                            <th>Your Order</th>
-                        </tr>
-                        <tr>
-                            <td>SubTotal</td>
-                            <td>Rs :<label id="price"></label></td>
-                        </tr>
-                        <tr>
-                            <td>Discount 5%</td>
-                            <td>-Rs :</td>
-                        </tr>
-                        <tr>
-                            <td>Total</td>
-                            <td>Rs :</td>
-                        </tr>
-                       
-                    </table>
-                    </form>
-                </div>
--->
-                </div>
             </div>
             <div class="tab">
                 <h4>Book Description</h4>

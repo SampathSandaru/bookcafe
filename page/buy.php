@@ -2,12 +2,24 @@
 
     include('conn.php');
     session_start();
-    
+        
+    $url=$_SERVER['HTTP_REFERER'];
     $item_qnt=$_POST['quantity'];
-    $price=$_GET['price'];
-    $item_id=$_GET['id'];
+    
+    if(isset($_GET['price'])){
+       $price=$_GET['price']; 
+    }
+
+    if(isset($_GET['id'])){
+       $item_id=$_GET['id']; 
+    }
     $user_id=$_SESSION['id'];
-    $tot=$price*$item_qnt;
+    
+    if(isset($_POST['price'])){
+        $tot=$_POST['price'];
+    }else if(isset($_GET['price'])){
+        $tot=$price*$item_qnt;
+    }
     $query="SELECT * FROM `user` u, `address` a WHERE id='$_SESSION[id]' AND a.user_id=u.id";
     $result=mysqli_query($con,$query);
 
@@ -27,10 +39,39 @@
             $order_address.=$add_recode['address_2']." ";
             $order_address.=$add_recode['city']." ";
             $order_address.=$add_recode['postal_code'];
+            $url1=$_POST['url'];
             
             $tot=0;
             $tot=$price*$item_qnt;
             
+ /****from cart.php****/
+        if($url1=="http://localhost/bookcafe/page/cart.php"){
+            $get_cart="SELECT * FROM `cart` c,`book` b WHERE user_id=$_SESSION[id] AND c.b_id=b.b_id";
+            $get_result=mysqli_query($con,$get_cart);
+            if($get_result){
+                while($cart_rec=mysqli_fetch_assoc($get_result)){
+                    $inser_from_cart="INSERT INTO `order` (book_id,user_id,order_address,order_quantity,order_price) VALUE ('{$cart_rec['b_id']}','{$cart_rec['user_id']}','{$order_address}','{$cart_rec['c_quantity']}','{$cart_rec['price']}')";
+                    
+                    $insert_result=mysqli_query($con,$inser_from_cart);
+                    if($insert_result){
+                        //auantity (-)
+                        $qua_que="UPDATE `book` SET quantity=quantity-$cart_rec[c_quantity] WHERE b_id='$cart_rec[b_id]'";
+                        $qua_res=mysqli_query($con,$qua_que);
+                        //
+                        
+                        // delete cart tb
+                        
+                        $delete_cart="DELETE FROM `cart` WHERE cart_id='$cart_rec[cart_id]'";
+                        $dele_result=mysqli_query($con,$delete_cart);
+                        
+                    }else{
+                        echo "<script>alert('insert error')</script>";
+                    }
+                }
+            }else{
+                echo "<script>alert('cart tb error')</script>";
+            }
+        }else{
             $order_query="INSERT INTO `order` (book_id,user_id,order_address,order_quantity,order_price) VALUE('{$item_id}','{$user_id}','{$order_address}','{$item_qnt}','{$tot}')";
             $order_result=mysqli_query($con,$order_query);
             
@@ -38,6 +79,10 @@
             $qua_que="UPDATE `book` SET quantity=quantity-$item_qnt WHERE b_id='$item_id'";
             $qua_res=mysqli_query($con,$qua_que);
             //
+        }
+  /***************/
+            
+            
         }
         
         
@@ -56,18 +101,48 @@
         $postal_code=$_POST['postal_code'];
         $p_number=$_POST['p_number'];
         $email=$_POST['email'];
+        $url1=$_POST['url'];
         
         $address=$fname." ".$lname." ".$address_1." ".$address_2." ".$city." ".$province." ".$postal_code;
         $tot=0;
         $tot=$price*$item_qnt;
         
-        $order_query="INSERT INTO `order` (book_id,user_id,order_address,order_quantity,order_price) VALUE('{$item_id}','{$user_id}','{$address}','{$item_qnt}','{$tot}')";
-            $order_result=mysqli_query($con,$order_query);
+       
         
-        //auantity (-)
-        $qua_que="UPDATE `book` SET quantity=quantity-$item_qnt WHERE b_id='$item_id'";
-        $qua_res=mysqli_query($con,$qua_que);
-        //
+/****from cart.php****/
+        if($url1=="http://localhost/bookcafe/page/cart.php"){
+            $get_cart="SELECT * FROM `cart` c,`book` b WHERE user_id=$_SESSION[id] AND c.b_id=b.b_id";
+            $get_result=mysqli_query($con,$get_cart);
+            if($get_result){
+                while($cart_rec=mysqli_fetch_assoc($get_result)){
+                    $inser_from_cart="INSERT INTO `order` (book_id,user_id,order_address,order_quantity,order_price) VALUE ('{$cart_rec['b_id']}','{$cart_rec['user_id']}','{$address}','{$cart_rec['c_quantity']}','{$cart_rec['price']}')";
+                    
+                    $insert_result=mysqli_query($con,$inser_from_cart);
+                    if($insert_result){
+                        //auantity (-)
+                        $qua_que="UPDATE `book` SET quantity=quantity-$cart_rec[c_quantity] WHERE b_id='$cart_rec[b_id]'";
+                        $qua_res=mysqli_query($con,$qua_que);
+                        //
+                        // delete cart tb
+                        
+                        $delete_cart="DELETE FROM `cart` WHERE cart_id='$cart_rec[cart_id]'";
+                        $dele_result=mysqli_query($con,$delete_cart);
+                    }else{
+                        echo "<script>alert('insert error')</script>";
+                    }
+                }
+            }
+        }else{
+             $order_query="INSERT INTO `order` (book_id,user_id,order_address,order_quantity,order_price) VALUE('{$item_id}','{$user_id}','{$address}','{$item_qnt}','{$tot}')";
+            $order_result=mysqli_query($con,$order_query);
+            //auantity (-)
+            $qua_que="UPDATE `book` SET quantity=quantity-$item_qnt WHERE b_id='$item_id'";
+            $qua_res=mysqli_query($con,$qua_que);
+            //
+        }
+  /***************/
+        
+        
     }
 
 ?>
@@ -160,13 +235,13 @@
                             <?php
                                  $query2="SELECT * FROM `address` WHERE user_id='$_SESSION[id]'";
                                  $result_2=mysqli_query($con,$query2);
-
+                             
                                 if($result_2){
                                    while($recode_2=mysqli_fetch_assoc($result_2)){
                                       echo "<option value=\"$recode_2[name]\">$recode_2[name]</option>";
                                    }
                                 }
-      
+       
                             ?>
                         </select>
                      </div>
@@ -204,7 +279,7 @@
                             Expires : <input type="text" class="form-control" placeholder="Ex : 01/25" required>
                         </div>
                     </div>
-                    
+                    <input type="hidden" value="<?php echo $url;?>" name="url">
                     <div class="form-row">
                         <div class="form-group col-md-5">
                             <input type="submit" value="Confirm" name="submit1" class="btn" style="background-color:red;color:white;">
@@ -300,7 +375,7 @@
                             Expires : <input type="text" class="form-control" placeholder="01/25" required>
                         </div>
                     </div>
-                    
+                     <input type="hidden" value="<?php echo $url;?>" name="url">
                     <div class="form-row">
                         <div class="form-group col-md-5">
                             <input type="submit" value="Confirm" name="submit2" class="btn" style="background-color:red;color:white;">
