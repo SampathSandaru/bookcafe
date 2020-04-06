@@ -228,12 +228,18 @@
             var h=mytime.getHours();
             var m=mytime.getMinutes();
             var s=mytime.getSeconds();
+            var a="am";
             
             if(s<10){s="0"+s;}
             if(m<10){m="0"+m;}
+            
+            if(h>12){
+                h=h-12;
+                a="pm";
+            }
             if(h<10){h="0"+h;}
             
-            var myclock=h + ":" + m + ":" + s;
+            var myclock=h + ":" + m + ":" + s +" "+a;
             document.getElementById("clock").innerHTML=myclock;
         }
     </script>
