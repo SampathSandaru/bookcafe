@@ -397,7 +397,7 @@
         <br>
           <!-- Footer -->
     <?php
-        include('footer.html');
+        include('footer.php');
     ?>
     </body>
 </html>

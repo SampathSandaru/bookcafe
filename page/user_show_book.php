@@ -248,7 +248,7 @@
 <!--poup box-->
          <!-- Footer -->
     <?php
-        include('footer.html');
+        include('footer.php');
     ?>
 
     </body>

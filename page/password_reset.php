@@ -39,8 +39,10 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         
         <style>
+/*
             body{background:linear-gradient(rgb(0,0,0,0.7),rgb(0,0,0,0.7)),url(../img/pwd.jpg);
 			background-size: 100% 100%;}
+*/
             
             .box{
                 margin-top: 200px;

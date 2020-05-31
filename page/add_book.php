@@ -73,6 +73,28 @@
             });
         </script>
         <!-- -->
+        <script>
+            function showHint(str) {
+                var xhttp;
+                if (str.length == 0) {
+                    document.getElementById("txtHint").innerHTML = "";
+                    document.getElementById("txtHint").style.display="none";
+                    return;
+                }else{
+                    document.getElementById("txtHint").style.display="block";
+                }
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "gethint_book.php?id="+str, true);
+                xhttp.send();
+
+            }
+        </script>
+        <!-- -->
         <style>
                  
             body{
@@ -145,7 +167,8 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label>Book ID : </label>
-                    <input type="text" class="form-control" placeholder="Book id BK***" name="b_id" value="<?php echo $bo_id;?>" required>
+                    <input type="text" class="form-control" placeholder="Book id BK****" onkeyup="showHint(this.value)" name="b_id" value="<?php echo $bo_id;?>" required>
+                    <samp id="txtHint" style="color:black;"> </samp>
                 </div>
                 <div class="form-group col-md-4">
                     <label>Author Name : </label>

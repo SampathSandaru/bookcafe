@@ -186,7 +186,7 @@
 
      <!-- Footer -->
     <?php
-        include('page/footer.html');
+        include('page/footer.php');
     ?>
     
 </body>

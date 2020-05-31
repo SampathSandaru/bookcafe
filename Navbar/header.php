@@ -34,9 +34,12 @@
             <div class="col-md-2"></div>
             <div class="col-md-7">
                 <ul>
+                    <li></li><li></li><li></li><li></li>
+                    <li></li><li></li><li></li><li></li>
+                    <li></li><li></li><li></li><li></li>
+                    <li></li><li></li><li></li><li></li>
                     <li><a href="../index.php">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
+                    
                     <li><a href="../page/cart.php"><sup><?php echo $cart_num;?></sup>Card</a></li>
                     <li><a href="../page/My_Order.php">My Order</a></li>
                     <li><a href="../page/profile.php">Profile</a></li>
