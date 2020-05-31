@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 30, 2020 at 02:09 PM
+-- Generation Time: May 31, 2020 at 05:30 PM
 -- Server version: 5.7.21
--- PHP Version: 5.6.35
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -48,7 +48,6 @@ CREATE TABLE IF NOT EXISTS `address` (
 --
 
 INSERT INTO `address` (`address_id`, `name`, `address_1`, `address_2`, `city`, `Province`, `postal_code`, `ad_number`, `user_id`) VALUES
-(7, 'T.N.Dewindi', 'Malgalla,Thalangalla', 'Thawalama', 'Gall', 'South Province', 511236, 705620141, 1),
 (11, 'lahiru sampath', 'No 80 , Rathmale Watta ,', 'Pangolla', 'Ibbagamuwa', 'western province', 60500, 763304183, 1),
 (8, 'P.S Gunawardhana', 'No 78/1, gokaralla', 'ibbgamuwa', 'kurunagala', 'western province', 61511, 789895772, 1),
 (9, 'T.D.Samaka', 'Awlegama', 'Wariyapola', 'kurunagala', 'western province', 60500, 715605092, 1),
@@ -116,7 +115,7 @@ INSERT INTO `book` (`b_id`, `b_name`, `b_desc`, `b_author_id`, `category_id`, `p
 ('BK006', 'Every Breath', 'Illuminating life\'s heartbreaking regrets and enduring hope, EVERY BREATH explores the many facets of love that lay claim to our deepest loyalties and asks the question, How long can a dream survive?', '17', '11', 1220, 'English', '5', '2016', 'upload/download.jpg'),
 ('BK007', 'See me', 'Colin Hancock is giving his second chance his best shot. At twenty eight, he\'s focused on getting his teaching degree and avoiding all the places and people that proved so destructive in his past. The last thing he\'s looking for is a serious relationship. But when he crosses paths with Maria Sanchez one rainswept night, his carefully structured life is turned upside down.', '17', '11', 2385, 'English', '5', '2015', 'upload/see_me_cover.jpg'),
 ('BK008', 'Adaraneeya Victoria', '1860 à¶¯à·à¶šà¶ºà·š à¶½à¶‚à¶šà·à·€à·š à¶¯à·”à¶¸à·Šà¶»à·’à¶º à¶œà¶¸à¶±à·à¶œà¶¸à¶±à¶ºà·š à¶†à¶»à¶¸à·Šà¶·à¶ºà¶­à·Š, 1880 à¶¯à·à¶šà¶ºà·š à¶­à·š à·€à¶œà·à·€à·š à·„à¶³à·”à¶±à·Šà·€à·à¶¯à·“à¶¸à¶­à·Š, à¶‘à·ƒà·šà¶¸ 1873 à·€à¶»à·Šà·‚à¶ºà·š à¶“à¶­à·’à·„à·à·ƒà·’à¶š à¶´à·à¶±à¶¯à·”à¶»à·à·€à·à¶¯à¶ºà·š à¶¸à·à¶¯à·’à·„à¶­à·Šà·€à·“à¶¸à¶­à·Š à¶…à¶­à¶»à¶¸à·à¶¯ à¶»à¶§ à¶´à·”à¶»à· à·à·“à¶à·Šâ€à¶»à¶ºà·™à¶±à·Š à·€à·Šâ€à¶ºà·à¶´à·Šà¶­ à·€à·– à¶…à¶»à¶šà·Šà¶šà·” à¶»à·šà¶±à·Šà¶¯ à·€à·Šâ€à¶ºà·à¶´à·à¶»à¶ºà·š à¶šà¶­à·à·€ \'à¶†à¶¯à¶»à¶«à·“à¶º à·€à·’à¶šà·Šà¶§à·à¶»à·’à¶ºà·\' à¶±à·€à¶šà¶­à·à·€à¶§ à¶´à·ƒà·”à¶¶à·’à¶¸à·Š à·€à·™à¶ºà·’.', '18', '11', 620, 'à·ƒà·’à¶‚à·„à¶½', '11', '2016', 'upload/41w6Noq1M6L._BO1,204,203,200_.jpg'),
-('BK009', 'The Fated Sky', 'One Large Step for Humankind.', '19', '11', 1750, 'English', '18', '2018', 'upload/9781781087329.jpg');
+('BK009', 'The Fated Sky', 'One Large Step for Humankind.', '19', '11', 1750, 'English', '17', '2018', 'upload/9781781087329.jpg');
 
 -- --------------------------------------------------------
 
@@ -132,14 +131,16 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`cart_id`),
   KEY `b_id` (`b_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=406 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=413 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`cart_id`, `b_id`, `c_quantity`, `user_id`) VALUES
-(376, 'BK004', 3, 5);
+(412, 'BK005', 3, 1),
+(376, 'BK004', 3, 5),
+(411, 'BK005', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -177,14 +178,7 @@ CREATE TABLE IF NOT EXISTS `msg` (
   `date` date NOT NULL,
   `expir_date` date DEFAULT NULL,
   PRIMARY KEY (`msg_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `msg`
---
-
-INSERT INTO `msg` (`msg_id`, `subject`, `message`, `date`, `expir_date`) VALUES
-(13, 'message 02', 'You have 5% discount this time period', '2020-03-23', '2020-04-02');
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -203,20 +197,21 @@ CREATE TABLE IF NOT EXISTS `order` (
   `order_price` float NOT NULL,
   `is_order` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `order`
 --
 
 INSERT INTO `order` (`id`, `book_id`, `order_time`, `user_id`, `order_address`, `order_quantity`, `order_price`, `is_order`) VALUES
+(59, 'BK009', '2020-05-31 16:10:50', 1, 'No 80 , Rathmale Watta ,Pangolla Ibbagamuwa 60500', 18, 31500, 1),
 (58, 'BK001', '2020-03-30 19:25:26', 1, 'No 78/1, gokarallaibbgamuwa kurunagala 61511', 2, 2520, 0),
 (56, 'BK001', '2020-03-30 19:25:26', 1, 'No 78/1, gokarallaibbgamuwa kurunagala 61511', 1, 2520, 0),
 (57, 'BK001', '2020-03-30 19:25:26', 1, 'No 78/1, gokarallaibbgamuwa kurunagala 61511', 3, 2520, 0),
 (53, 'BK002', '2020-03-28 12:38:27', 1, 'AwlegamaWariyapola kurunagala 60500', 3, 1000, 0),
 (52, 'BK002', '2020-03-28 12:38:27', 1, 'AwlegamaWariyapola kurunagala 60500', 2, 1000, 0),
 (51, 'BK003', '2020-03-28 12:38:27', 1, 'AwlegamaWariyapola kurunagala 60500', 5, 220, 0),
-(50, 'BK001', '2020-03-28 12:38:27', 1, 'AwlegamaWariyapola kurunagala 60500', 2, 2520, 1);
+(50, 'BK001', '2020-03-28 12:38:27', 1, 'AwlegamaWariyapola kurunagala 60500', 2, 2520, 0);
 
 -- --------------------------------------------------------
 
@@ -269,7 +264,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `fname`, `lname`, `email`, `number`, `password`, `role`) VALUES
-(1, 'lahiru', 'sampath', 'lahirusampath8899@gmail.com', 703029153, '12', 'user'),
+(1, 'lahiru', 'sampath', 'lahirusampath8899@gmail.com', 703029153, '123', 'user'),
 (2, 'sandaruwan', 'sampath', 'lahirusampath3366@gmail.com', 703029153, '12', 'admin'),
 (3, 'Amila', 'Sandaruwan', 'sampath980250@gmail.com', 789895772, '123', 'user'),
 (4, 'lahiru', 'sampath', 'lahirusampath88993@gmail.com', 771712924, '12', 'user'),
