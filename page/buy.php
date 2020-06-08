@@ -63,6 +63,7 @@
                         
                         $delete_cart="DELETE FROM `cart` WHERE cart_id='$cart_rec[cart_id]'";
                         $dele_result=mysqli_query($con,$delete_cart);
+                        header("location:order_seccuss.php");
                         
                     }else{
                         echo "<script>alert('insert error')</script>";
@@ -79,6 +80,7 @@
             $qua_que="UPDATE `book` SET quantity=quantity-$item_qnt WHERE b_id='$item_id'";
             $qua_res=mysqli_query($con,$qua_que);
             //
+             header("location:order_seccuss.php");
         }
   /***************/
             
@@ -119,7 +121,7 @@
                     
                     $insert_result=mysqli_query($con,$inser_from_cart);
                     if($insert_result){
-                        //auantity (-)
+                        //quantity (-)
                         $qua_que="UPDATE `book` SET quantity=quantity-$cart_rec[c_quantity] WHERE b_id='$cart_rec[b_id]'";
                         $qua_res=mysqli_query($con,$qua_que);
                         //
@@ -127,6 +129,7 @@
                         
                         $delete_cart="DELETE FROM `cart` WHERE cart_id='$cart_rec[cart_id]'";
                         $dele_result=mysqli_query($con,$delete_cart);
+                        header("location:order_seccuss.php");
                     }else{
                         echo "<script>alert('insert error')</script>";
                     }
@@ -135,9 +138,10 @@
         }else{
              $order_query="INSERT INTO `order` (book_id,user_id,order_address,order_quantity,order_price) VALUE('{$item_id}','{$user_id}','{$address}','{$item_qnt}','{$tot}')";
             $order_result=mysqli_query($con,$order_query);
-            //auantity (-)
+            //quantity (-)
             $qua_que="UPDATE `book` SET quantity=quantity-$item_qnt WHERE b_id='$item_id'";
             $qua_res=mysqli_query($con,$qua_que);
+            header("location:order_seccuss.php");
             //
         }
   /***************/
