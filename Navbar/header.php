@@ -14,7 +14,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Book Cafe</title>
+    <title>BOOKCAFE</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--
     <link rel="stylesheet" href="style.css">
@@ -29,7 +29,7 @@
       </label>
         <div class="row">
             <div class="col-md-3">
-                 <label class="logo">BOOK CAFE</label>
+                 <label class="logo">BOOKCAFE</label>
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-7">

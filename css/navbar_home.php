@@ -44,7 +44,7 @@
       <label for="check" class="checkbtn">
         <i class="fas fa-bars"></i>
       </label>
-      <label class="logo" id="logo">BOOK CAFE</label>
+      <label class="logo" id="logo">BOOKCAFE</label>
       <ul id="li">
         <li style="color: white;font-size: 25px;"><?php echo $name;?></li>
         
