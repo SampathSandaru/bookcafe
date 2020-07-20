@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 31, 2020 at 05:30 PM
+-- Generation Time: Jul 20, 2020 at 04:18 PM
 -- Server version: 5.7.21
--- PHP Version: 7.2.4
+-- PHP Version: 5.6.35
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -107,11 +107,11 @@ CREATE TABLE IF NOT EXISTS `book` (
 --
 
 INSERT INTO `book` (`b_id`, `b_name`, `b_desc`, `b_author_id`, `category_id`, `price`, `language`, `quantity`, `year`, `img_path`) VALUES
-('BK001', 'Road to Nandikadal', 'Road to Nandikadal is a book about the defeat of the LTTE. The book was released on 6 th September 2016,a day after Gunaratnaï¿½s retirement', '13', '10', 2520, 'English', '6', '2016', 'upload/hamal-1-721x1024.jpg'),
-('BK002', 'Gota\'s War', 'The story of the war between the liberation tigers of Tamil Eelam and the government of sri Lankan in the context of the wider political conflict which began in 1956', '14', '10', 1000, 'English', '15', '2012', 'upload/51e4SUjnY+L._SX330_BO1,204,203,200_.jpg'),
+('BK001', 'Road to Nandikadal', 'Road to Nandikadal is a book about the defeat of the LTTE. The book was released on 6 th September 2016,a day after Gunaratnaï¿½s retirement', '13', '10', 2520, 'English', '27', '2016', 'upload/hamal-1-721x1024.jpg'),
+('BK002', 'Gota\'s War', 'The story of the war between the liberation tigers of Tamil Eelam and the government of sri Lankan in the context of the wider political conflict which began in 1956', '14', '10', 1000, 'English', '7', '2012', 'upload/51e4SUjnY+L._SX330_BO1,204,203,200_.jpg'),
 ('BK003', 'Ape gama', 'The book is not a novel and  not a story but this describe every corner and thoughts.', '15', '11', 220, 'à·ƒà·’à¶‚à·„à¶½', '39', '1940', 'upload/086b3f0e3c827b4484146e7fd75aafe8.jpg'),
 ('BK004', 'Wijayaba Kollaya', 'Honestly, conscientiously speaking, W.W. was the first novelist to give us the stimulation to read novels. Profits. Silva. It was he who gave us a different dose of enjoyment of the stories we heard in the ages. á¸Œablyu. Profits. If Silva\'s novels did not affect children as well as adults, he would not be entitled to the novel \'Chakravarti\'.\r\ná¸Œablyu. Profits. It is undoubtedly due to the fantasy world that his works have created in the minds of his readers that he has been recognized as a novelist.', '16', '12', 550, 'à·ƒà·’à¶‚à·„à¶½', '12', '1939', 'upload/unnamed.jpg'),
-('BK005', 'Madol Doowa', 'Madol Doowa', '15', '11', 300, 'à·ƒà·’à¶‚à·„à¶½', '15', '1947', 'upload/z_jun-p06-Madol.jpg'),
+('BK005', 'Madol Doowa', 'Madol Doowa', '15', '11', 300, 'à·ƒà·’à¶‚à·„à¶½', '11', '1947', 'upload/z_jun-p06-Madol.jpg'),
 ('BK006', 'Every Breath', 'Illuminating life\'s heartbreaking regrets and enduring hope, EVERY BREATH explores the many facets of love that lay claim to our deepest loyalties and asks the question, How long can a dream survive?', '17', '11', 1220, 'English', '5', '2016', 'upload/download.jpg'),
 ('BK007', 'See me', 'Colin Hancock is giving his second chance his best shot. At twenty eight, he\'s focused on getting his teaching degree and avoiding all the places and people that proved so destructive in his past. The last thing he\'s looking for is a serious relationship. But when he crosses paths with Maria Sanchez one rainswept night, his carefully structured life is turned upside down.', '17', '11', 2385, 'English', '5', '2015', 'upload/see_me_cover.jpg'),
 ('BK008', 'Adaraneeya Victoria', '1860 à¶¯à·à¶šà¶ºà·š à¶½à¶‚à¶šà·à·€à·š à¶¯à·”à¶¸à·Šà¶»à·’à¶º à¶œà¶¸à¶±à·à¶œà¶¸à¶±à¶ºà·š à¶†à¶»à¶¸à·Šà¶·à¶ºà¶­à·Š, 1880 à¶¯à·à¶šà¶ºà·š à¶­à·š à·€à¶œà·à·€à·š à·„à¶³à·”à¶±à·Šà·€à·à¶¯à·“à¶¸à¶­à·Š, à¶‘à·ƒà·šà¶¸ 1873 à·€à¶»à·Šà·‚à¶ºà·š à¶“à¶­à·’à·„à·à·ƒà·’à¶š à¶´à·à¶±à¶¯à·”à¶»à·à·€à·à¶¯à¶ºà·š à¶¸à·à¶¯à·’à·„à¶­à·Šà·€à·“à¶¸à¶­à·Š à¶…à¶­à¶»à¶¸à·à¶¯ à¶»à¶§ à¶´à·”à¶»à· à·à·“à¶à·Šâ€à¶»à¶ºà·™à¶±à·Š à·€à·Šâ€à¶ºà·à¶´à·Šà¶­ à·€à·– à¶…à¶»à¶šà·Šà¶šà·” à¶»à·šà¶±à·Šà¶¯ à·€à·Šâ€à¶ºà·à¶´à·à¶»à¶ºà·š à¶šà¶­à·à·€ \'à¶†à¶¯à¶»à¶«à·“à¶º à·€à·’à¶šà·Šà¶§à·à¶»à·’à¶ºà·\' à¶±à·€à¶šà¶­à·à·€à¶§ à¶´à·ƒà·”à¶¶à·’à¶¸à·Š à·€à·™à¶ºà·’.', '18', '11', 620, 'à·ƒà·’à¶‚à·„à¶½', '11', '2016', 'upload/41w6Noq1M6L._BO1,204,203,200_.jpg'),
@@ -131,16 +131,14 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`cart_id`),
   KEY `b_id` (`b_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=413 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=414 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`cart_id`, `b_id`, `c_quantity`, `user_id`) VALUES
-(412, 'BK005', 3, 1),
-(376, 'BK004', 3, 5),
-(411, 'BK005', 1, 1);
+(376, 'BK004', 3, 5);
 
 -- --------------------------------------------------------
 
@@ -197,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `order` (
   `order_price` float NOT NULL,
   `is_order` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=87 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `order`
@@ -211,7 +209,15 @@ INSERT INTO `order` (`id`, `book_id`, `order_time`, `user_id`, `order_address`, 
 (53, 'BK002', '2020-03-28 12:38:27', 1, 'AwlegamaWariyapola kurunagala 60500', 3, 1000, 0),
 (52, 'BK002', '2020-03-28 12:38:27', 1, 'AwlegamaWariyapola kurunagala 60500', 2, 1000, 0),
 (51, 'BK003', '2020-03-28 12:38:27', 1, 'AwlegamaWariyapola kurunagala 60500', 5, 220, 0),
-(50, 'BK001', '2020-03-28 12:38:27', 1, 'AwlegamaWariyapola kurunagala 60500', 2, 2520, 0);
+(50, 'BK001', '2020-03-28 12:38:27', 1, 'AwlegamaWariyapola kurunagala 60500', 2, 2520, 0),
+(83, 'BK002', '2020-07-20 12:26:18', 1, 'No 80 , Rathmale Watta ,Pangolla Ibbagamuwa 60500', 1, 1000, 1),
+(84, 'BK002', '2020-07-20 12:27:24', 1, 'No 80 , Rathmale Watta ,Pangolla Ibbagamuwa 60500', 1, 1000, 1),
+(85, 'BK002', '2020-07-20 12:28:53', 1, 'No 80 , Rathmale Watta ,Pangolla Ibbagamuwa 60500', 3, 3000, 1),
+(86, 'BK002', '2020-07-20 12:38:37', 1, 'No 80 , Rathmale Watta ,Pangolla Ibbagamuwa 60500', 3, 3000, 1),
+(82, 'BK001', '2020-07-20 12:23:26', 1, 'No 80 , Rathmale Watta ,Pangolla Ibbagamuwa 60500', 1, 2520, 1),
+(81, 'BK001', '2020-07-20 12:21:58', 1, 'No 80 , Rathmale Watta ,Pangolla Ibbagamuwa 60500', 1, 2520, 1),
+(79, 'BK001', '2020-07-20 12:03:05', 1, 'No 80 , Rathmale Watta ,Pangolla Ibbagamuwa 60500', 1, 2520, 1),
+(80, 'BK001', '2020-07-20 12:04:54', 1, 'No 78/1, gokarallaibbgamuwa kurunagala 61511', 1, 2520, 1);
 
 -- --------------------------------------------------------
 
