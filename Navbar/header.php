@@ -42,6 +42,7 @@
                     
                     <li><a href="../page/cart.php"><sup><?php echo $cart_num;?></sup>Card</a></li>
                     <li><a href="../page/My_Order.php">My Order</a></li>
+                    <li><a href="../page/msg.php">Massege</a></li>
                     <li><a href="../page/profile.php">Profile</a></li>
                     <li><a href="../page/logout.php">Logout</a></li>
                 </ul> 

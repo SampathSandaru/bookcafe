@@ -21,7 +21,7 @@
         $tot=$price*$item_qnt;
     }
     
-    $bk_name=mysqli_query($con,"SELECT `b_name` FROM `book` WHERE b_id='$item_id'");
+    $bk_name=mysqli_query($con,"SELECT `b_name` FROM `book` WHERE b_id='BK001'");
     $b_recode=mysqli_fetch_assoc($bk_name);
     $bk_name=$b_recode['b_name'];
 
@@ -199,7 +199,7 @@ function send_mail($user_email,$ad1,$ad2,$ad3,$ad4,$bk_name,$tot){
                     $insert_result=mysqli_query($con,$inser_from_cart);
                     if($insert_result){
                         
-                         send_mail($user_email,$ad1,$ad2,$ad3,$ad4);
+                          send_mail($user_email,$ad1,$ad2,$ad3,$ad4,$bk_name,$tot);
                         
                         //auantity (-)
                         $qua_que="UPDATE `book` SET quantity=quantity-$cart_rec[c_quantity] WHERE b_id='$cart_rec[b_id]'";
