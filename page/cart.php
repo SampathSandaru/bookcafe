@@ -164,7 +164,7 @@
                         </tr>
                         <tr>
                             <td>Discount 5%</td>
-                            <td>-Rs :<?php if($sub_tot>10000){ $di_tot=($sub_tot*5)/100;}else{ $di_tot=0;} echo $di_tot;?></td>
+                            <td>-Rs :<?php if($sub_tot>0){ $di_tot=($sub_tot*5)/100;}else{ $di_tot=0;} echo $di_tot;?></td>
                         </tr>
                         <tr>
                             <td>Item Quantity</td>

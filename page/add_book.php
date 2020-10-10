@@ -329,7 +329,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>Book Description : </label>
-                    <textarea cols="50" rows="2" class="form-control" name="desc" required></textarea>
+                    <textarea cols="50" rows="2" class="form-control" name="desc"></textarea>
                 </div>
                 <div class="form-group col-md-6">
                    

@@ -115,7 +115,7 @@
                 }else{
                     $sql="SELECT * FROM `book`";
                     $css="col-lg-3";
-                    $card_width="<div class=\"card h-100\">";
+                    $card_width="<div class=\"card h-70\">";
                 }  
                     
                   

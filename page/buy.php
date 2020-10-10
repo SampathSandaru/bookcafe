@@ -382,7 +382,7 @@ function send_mail($user_email,$ad1,$ad2,$ad3,$ad4,$bk_name,$tot){
             <div class="col-md-2"></div>
             
             <div class="col-md-7 address" id="address_1">
-                <samp><b>Assress</b></samp> <button type="button" class="btn" style="float:right;">New Address</button> <hr>
+                <samp><b>Address</b></samp> <button type="button" class="btn" style="float:right;">New Address</button> <hr>
                 <form method="post" action="">
                     <input type="hidden" name="quantity" value="<?php echo $item_qnt;?>">
                 <div class="form-row">
@@ -463,7 +463,7 @@ function send_mail($user_email,$ad1,$ad2,$ad3,$ad4,$bk_name,$tot){
             <div class="col-md-2"></div>
             
             <div class="col-md-7 address address_new">
-                <samp><b>New Assress</b></samp> <button type="button" id="new_address" class="btn" style="float:right;">Default Address</button> <hr>
+                <samp><b>New Address</b></samp> <button type="button" id="new_address" class="btn" style="float:right;">Default Address</button> <hr>
                 <form method="post">
                     <input type="hidden" name="quantity" value="<?php echo $item_qnt;?>">
                 <div class="form-row">

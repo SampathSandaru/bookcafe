@@ -2,7 +2,6 @@
     include('conn.php');
     session_start();
 
-    
 
     if(isset($_POST['submit'])){
         $email=mysqli_real_escape_string($con,$_POST['email']);
@@ -217,7 +216,7 @@ if(isset($_POST['submit_email'])){
                 </tr>
                   <tr>
                    <td>Contact Number</td>
-                   <td><input type="text" name="num"  class="form-control" placeholder="0711234567" required></td>
+                   <td><input type="text" name="num"  class="form-control" placeholder="0711234567" maxlength="10" required></td>
                 </tr>
                 <tr>
                    <td>Email Address</td>
